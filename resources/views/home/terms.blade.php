@@ -1,0 +1,1 @@
+@extends('layouts.app') @section('title','Terms & Conditions | Quantum Tech') @section('content')<section class="section"><div class="container narrow rich"><h1>Terms & Conditions</h1><p>This page is intentionally a development placeholder. Production legal terms should be supplied or approved by UAE legal counsel before launch.</p></div></section>@endsection

@@ -1,0 +1,1 @@
+@extends('layouts.app') @section('content')<section class="section"><div class="container narrow center"><span class="success-mark">✓</span><h1>RFQ Received</h1><p>Thank you. Your enquiry has been received by Quantum Tech.</p><p><b>Reference:</b> {{ request('ref') }}</p><a class="btn" href="{{ route('products.index') }}">Continue Browsing</a></div></section>@endsection

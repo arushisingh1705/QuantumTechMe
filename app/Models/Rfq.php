@@ -1,0 +1,2 @@
+<?php
+namespace App\Models; use Illuminate\Database\Eloquent\Model; class Rfq extends Model {protected $guarded=[];protected function casts():array{return ['required_delivery_date'=>'date','privacy_consent'=>'boolean'];}public function items(){return $this->hasMany(RfqItem::class);}public function attachments(){return $this->hasMany(RfqAttachment::class);}public function assignee(){return $this->belongsTo(User::class,'assigned_to');}}

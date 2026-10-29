@@ -1,0 +1,3 @@
+<?php
+namespace App\Http\Controllers\Admin;use App\Http\Controllers\Controller;use App\Models\{Product,Brand,Rfq,Lead,Document,Contact,ReplacementRequest};
+class DashboardController extends Controller {public function __invoke(){return view('admin.dashboard.index',['stats'=>['products'=>Product::count(),'brands'=>Brand::count(),'rfqs'=>Rfq::count(),'new_rfqs'=>Rfq::where('status','new')->count(),'leads'=>Lead::count(),'documents'=>Document::count(),'contacts'=>Contact::where('status','new')->count(),'replacements'=>ReplacementRequest::where('status','new')->count()],'recentRfqs'=>Rfq::latest()->take(8)->get()]);}}

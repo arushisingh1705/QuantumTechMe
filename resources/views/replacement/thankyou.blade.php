@@ -1,0 +1,1 @@
+@extends('layouts.app') @section('content')<section class="section"><div class="container narrow center"><span class="success-mark">✓</span><h1>Replacement Request Received</h1><p>Our team can now review your equipment details.</p><p><b>Reference:</b> {{ request('ref') }}</p><a class="btn" href="{{ route('home') }}">Back Home</a></div></section>@endsection

@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers;use App\Models\Blog;class BlogController extends Controller {public function index(){return view('blog.index',['posts'=>Blog::where('status',1)->where(fn($q)=>$q->whereNull('published_at')->orWhere('published_at','<=',now()))->latest('published_at')->paginate(12)]);}public function show(Blog $blog){abort_unless($blog->status,404);return view('blog.show',compact('blog'));}}

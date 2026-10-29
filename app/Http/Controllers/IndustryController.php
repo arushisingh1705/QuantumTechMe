@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers;use App\Models\Industry;class IndustryController extends Controller {public function index(){return view('industries.index',['industries'=>Industry::where('status',1)->orderBy('name')->get()]);}public function show(Industry $industry){abort_unless($industry->status,404);$industry->load(['products'=>fn($q)=>$q->published()->with('brand'),'documents'=>fn($q)=>$q->where('status',1)]);return view('industries.show',compact('industry'));}}
