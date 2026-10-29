@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#080808">
     <title>@yield('title','Quantum Tech | Industrial Power Transmission UAE')</title>
     <meta name="description" content="@yield('meta_description','Quantum Tech supplies industrial gearboxes, motors, drives and engineering solutions across UAE and GCC.')">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo/icon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo/icon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script defer src="{{ asset('js/site.js') }}"></script>
     @stack('head')
@@ -25,8 +27,7 @@
 <header class="site-header" data-header>
     <div class="container site-nav">
         <a href="{{ route('home') }}" class="brand-mark" aria-label="Quantum Tech home">
-            <span class="brand-symbol">QT</span>
-            <span class="brand-name">QUANTUM <b>TECH</b></span>
+            <img src="{{ asset('images/logo/full.png') }}" alt="Quantum Tech" class="brand-logo">
         </a>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -114,8 +115,7 @@
     <div class="container footer-grid">
         <div class="footer-about">
             <a href="{{ route('home') }}" class="brand-mark footer-brand">
-                <span class="brand-symbol">QT</span>
-                <span class="brand-name">QUANTUM <b>TECH</b></span>
+                <img src="{{ asset('images/logo/full.png') }}" alt="Quantum Tech" class="brand-logo">
             </a>
             <p>Industrial power transmission, motors, drives and engineering solutions for UAE & GCC.</p>
         </div>
@@ -141,7 +141,9 @@
         </div>
     </div>
 
-    <div class="container footer-wordmark" aria-hidden="true">QUANTUM TECH</div>
+    <div class="container footer-wordmark" aria-hidden="true">
+        <img src="{{ asset('images/logo/name.png') }}" alt="">
+    </div>
     <div class="container footer-bottom">
         <span>© {{ date('Y') }} Quantum Tech. All rights reserved.</span>
         <div><a href="{{ route('privacy') }}">Privacy</a><a href="{{ route('terms') }}">Terms</a></div>

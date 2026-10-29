@@ -10,7 +10,7 @@
             <div class="product-placeholder" aria-hidden="true">
                 <span class="placeholder-ring one"></span>
                 <span class="placeholder-ring two"></span>
-                <b>QT</b>
+                <img src="{{ asset('images/logo/icon.png') }}" alt="">
             </div>
         @endif
     </div>

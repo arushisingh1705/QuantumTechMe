@@ -60,7 +60,7 @@
             window.setTimeout(() => {
                 body.style.overflow = '';
                 closeOpening();
-            }, 1850);
+            }, 4200);
             skip?.addEventListener('click', () => {
                 body.style.overflow = '';
                 closeOpening();
@@ -76,9 +76,21 @@
         const next = hero.querySelector('[data-hero-next]');
         const currentLabel = hero.querySelector('[data-hero-current]');
         const progress = hero.querySelector('[data-hero-progress]');
+        const dotsWrap = hero.querySelector('[data-hero-dots]');
         let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
         let timer = null;
+        let pointerStart = 0;
+        let pointerActive = false;
         const duration = 6500;
+
+        const dots = slides.map((_, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.setAttribute('aria-label', `Go to slide ${String(index + 1).padStart(2, '0')}`);
+            button.addEventListener('click', () => show(index, true));
+            dotsWrap?.appendChild(button);
+            return button;
+        });
 
         const restartProgress = () => {
             if (!progress || prefersReducedMotion) return;
@@ -90,7 +102,12 @@
         const show = (index, userInitiated = false) => {
             if (!slides.length) return;
             current = (index + slides.length) % slides.length;
-            slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+            slides.forEach((slide, i) => {
+                const active = i === current;
+                slide.classList.toggle('is-active', active);
+                slide.setAttribute('aria-hidden', String(!active));
+            });
+            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
             if (currentLabel) currentLabel.textContent = String(current + 1).padStart(2, '0');
             restartProgress();
             if (userInitiated) schedule();
@@ -109,6 +126,26 @@
         hero.addEventListener('mouseleave', schedule);
         hero.addEventListener('focusin', () => timer && window.clearInterval(timer));
         hero.addEventListener('focusout', schedule);
+        hero.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') show(current - 1, true);
+            if (event.key === 'ArrowRight') show(current + 1, true);
+        });
+
+        hero.addEventListener('pointerdown', (event) => {
+            if (event.target.closest('a, button')) return;
+            pointerActive = true;
+            pointerStart = event.clientX;
+        });
+        hero.addEventListener('pointerup', (event) => {
+            if (!pointerActive) return;
+            pointerActive = false;
+            const delta = event.clientX - pointerStart;
+            if (Math.abs(delta) < 56) return;
+            show(current + (delta < 0 ? 1 : -1), true);
+        });
+        hero.addEventListener('pointercancel', () => { pointerActive = false; });
+
+        hero.setAttribute('tabindex', '0');
         show(current);
         schedule();
     }

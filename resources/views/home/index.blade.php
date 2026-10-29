@@ -4,24 +4,19 @@
 
 {{-- Immersive opening inspired by the cinematic chapter-based interaction of the supplied reference site. --}}
 <div class="qt-opening" data-site-intro aria-hidden="true">
-    <div class="qt-opening-grid" aria-hidden="true"></div>
-    <div class="qt-opening-copy">
-        <span>QUANTUM TECH PRESENTS</span>
-        <strong>ENGINEERING<br><em>MOTION.</em></strong>
-        <small>Dubai · UAE · GCC</small>
+    <div class="qt-opening-stage">
+        <img class="qt-opening-logo" src="{{ asset('images/logo/loading.gif') }}" alt="Quantum Tech">
     </div>
     <div class="qt-opening-progress"><i></i></div>
     <button type="button" data-intro-skip>Skip opening ↗</button>
 </div>
 
-<section class="az-hero" data-hero-slider>
+<section class="az-hero" data-hero-slider role="region" aria-roledescription="carousel" aria-label="Featured Quantum Tech slides">
     <div class="az-hero-slides">
-        <article class="az-hero-slide is-active" data-hero-slide data-theme="motion">
-            <div class="az-hero-media az-media-motion" aria-hidden="true">
+        <article class="az-hero-slide is-active" data-hero-slide>
+            <div class="az-hero-media" aria-hidden="true">
+                <img class="az-hero-photo" src="{{ asset('images/hero/power-transmission.jpg') }}" alt="">
                 <div class="az-media-grid"></div>
-                <div class="az-rotor az-rotor-lg"></div>
-                <div class="az-rotor az-rotor-md"></div>
-                <div class="az-rotor az-rotor-sm"></div>
                 <div class="az-media-label">POWER / TORQUE / RELIABILITY</div>
             </div>
             <div class="container az-hero-content">
@@ -37,12 +32,10 @@
             </div>
         </article>
 
-        <article class="az-hero-slide" data-hero-slide data-theme="engineering">
-            <div class="az-hero-media az-media-engineering" aria-hidden="true">
+        <article class="az-hero-slide" data-hero-slide>
+            <div class="az-hero-media" aria-hidden="true">
+                <img class="az-hero-photo" src="{{ asset('images/hero/engineering-support.jpg') }}" alt="">
                 <div class="az-media-grid"></div>
-                <div class="az-blueprint-unit">
-                    <span class="bp-a"></span><span class="bp-b"></span><span class="bp-c"></span><span class="bp-axis x"></span><span class="bp-axis y"></span>
-                </div>
                 <div class="az-media-label">SELECT / SIZE / REPLACE / RETROFIT</div>
             </div>
             <div class="container az-hero-content">
@@ -58,12 +51,10 @@
             </div>
         </article>
 
-        <article class="az-hero-slide" data-hero-slide data-theme="rfq">
-            <div class="az-hero-media az-media-rfq" aria-hidden="true">
+        <article class="az-hero-slide" data-hero-slide>
+            <div class="az-hero-media" aria-hidden="true">
+                <img class="az-hero-photo" src="{{ asset('images/hero/digital-platform.jpg') }}" alt="">
                 <div class="az-media-grid"></div>
-                <div class="az-rfq-card card-one"><b>RFQ</b><span>PRODUCT / PROJECT</span></div>
-                <div class="az-rfq-card card-two"><b>CAD</b><span>DRAWINGS / DATA</span></div>
-                <div class="az-rfq-card card-three"><b>UAE</b><span>LOCAL RESPONSE</span></div>
                 <div class="az-media-label">DISCOVER / VERIFY / ENQUIRE</div>
             </div>
             <div class="container az-hero-content">
@@ -83,6 +74,7 @@
     <div class="container az-hero-controls">
         <div class="az-hero-count"><strong data-hero-current>01</strong><span>/ 03</span></div>
         <div class="az-hero-progress"><i data-hero-progress></i></div>
+        <div class="az-hero-dots" data-hero-dots></div>
         <div class="az-hero-buttons">
             <button type="button" data-hero-prev aria-label="Previous slide">←</button>
             <button type="button" data-hero-next aria-label="Next slide">→</button>
@@ -122,7 +114,7 @@
             <a href="{{ route('products.index',['category'=>$c->slug]) }}" class="service-row az-category-row" data-category-row>
                 <span class="service-number">{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</span>
                 <div class="service-title"><h3>{{ $c->name }}</h3><p>{{ $c->description }}</p></div>
-                <div class="az-category-orbit" aria-hidden="true"><i></i><i></i><b>QT</b></div>
+                <div class="az-category-orbit" aria-hidden="true"><i></i><i></i><img src="{{ asset('images/logo/icon.png') }}" alt=""></div>
                 <span class="service-arrow">↗</span>
             </a>
         @empty
@@ -267,7 +259,7 @@
 </section>
 
 <section class="final-cta az-reveal-section" data-reveal-section>
-    <div class="az-cta-orbit" aria-hidden="true"><span></span><span></span><i>QT</i></div>
+    <div class="az-cta-orbit" aria-hidden="true"><span></span><span></span><img src="{{ asset('images/logo/icon.png') }}" alt=""></div>
     <div class="container final-cta-inner">
         <span class="section-marker"><span>S.07</span><b>Start a project</b></span>
         <h2 class="split-reveal">Tell us what you need.<br><em>We’ll help you specify it.</em></h2>
