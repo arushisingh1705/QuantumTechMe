@@ -7,11 +7,7 @@
         @if($p->featured_image)
             <img src="{{ asset('storage/'.$p->featured_image) }}" alt="{{ $p->name }}">
         @else
-            <div class="product-placeholder" aria-hidden="true">
-                <span class="placeholder-ring one"></span>
-                <span class="placeholder-ring two"></span>
-                <img src="{{ asset('images/logo/icon.png') }}" alt="">
-            </div>
+            <img src="{{ asset('images/products/'.$p->render_image.'.jpg') }}" alt="{{ $p->name }}" loading="lazy" decoding="async">
         @endif
     </div>
     <div class="product-card-body">

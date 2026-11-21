@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\{HomeController,ProductController,BrandController,IndustryController,SolutionController,ResourceController,BlogController,CaseStudyController,SearchController,InquiryController};
-use App\Http\Controllers\Admin\{AuthController as AdminAuthController,DashboardController as AdminDashboardController,ProductController as AdminProductController,SimpleCatalogController,DocumentController as AdminDocumentController,InquiryController as AdminInquiryController,SettingController as AdminSettingController};
+use App\Http\Controllers\Admin\{AuthController as AdminAuthController,DashboardController as AdminDashboardController,ProductController as AdminProductController,SimpleCatalogController,DocumentController as AdminDocumentController,InquiryController as AdminInquiryController,SettingController as AdminSettingController,PasswordController as AdminPasswordController};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
@@ -55,5 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
   Route::put('/replacements/{replacement}',[AdminInquiryController::class,'replacementUpdate'])->name('replacements.update');
   Route::get('/settings',[AdminSettingController::class,'index'])->name('settings.index');
   Route::put('/settings',[AdminSettingController::class,'update'])->name('settings.update');
+  Route::get('/password',[AdminPasswordController::class,'edit'])->name('password.edit');
+  Route::put('/password',[AdminPasswordController::class,'update'])->middleware('throttle:6,1')->name('password.update');
  });
 });

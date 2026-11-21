@@ -252,3 +252,9 @@ The package now includes placeholder `.gitignore` files for Laravel's empty runt
 ```bash
 chmod -R 775 bootstrap/cache storage
 ```
+
+## Design (v2: "Pixel Velocity")
+
+Public site redesigned from scratch around the logo (yellow pixel blocks, steel wordmark, notched corners). Files: `public/css/qt.css`, `public/js/qt.js` (UI), `public/js/qt3d.js` (Three.js scenes), `layouts/app.blade.php`, `home/index.blade.php`. Inner pages keep their data and forms and use the new stylesheet. The admin area still uses `public/css/app.css`.
+
+Hero: a 3D voxel version of the logo assembled from cubes (generated from `images/logo/full.png`). Also: GCC globe, category morph shapes, brand-name sphere, 3D product viewer, themed 3D model in each inner-page header.

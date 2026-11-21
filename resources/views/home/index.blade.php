@@ -1,272 +1,117 @@
 @extends('layouts.app')
 @section('title','Quantum Tech | Industrial Power Transmission UAE & GCC')
 @section('content')
-
-{{-- Immersive opening inspired by the cinematic chapter-based interaction of the supplied reference site. --}}
-<div class="qt-opening" data-site-intro aria-hidden="true">
-    <div class="qt-opening-stage">
-        <img class="qt-opening-logo" src="{{ asset('images/logo/loading.gif') }}" alt="Quantum Tech">
-    </div>
-    <div class="qt-opening-progress"><i></i></div>
-    <button type="button" data-intro-skip>Skip opening ↗</button>
+<section class="hero">
+<div class="container">
+<div>
+<span class="eyebrow">Dubai · UAE &amp; GCC</span>
+<h1>Accelerating <em>Excellence.</em></h1>
+<p>High-performance gearboxes, electric motors, drives and power-transmission solutions, backed by professional engineering support.</p>
+<div class="actions"><a class="btn" href="{{ route('products.index') }}">Explore products</a><a class="btn outline" href="{{ route('rfq.create') }}">Request a quote</a></div>
+<div class="pills"><span>Gearboxes</span><span>Geared motors</span><span>Electric motors</span><span>Drives</span><span>Automation</span><span>Pumps</span><span>Couplings</span></div>
 </div>
+<div class="vox"><canvas data-3d="voxel" aria-label="3D Quantum Tech logo"></canvas><div class="tag">QT · BUILT BLOCK BY BLOCK</div></div>
+</div>
+<div class="scrollcue" aria-hidden="true"></div>
+</section>
+<div class="kin" aria-hidden="true"><div>@for($k=0;$k<2;$k++)<span>Gearboxes</span><span>Motors</span><span>Drives</span><span>Automation</span><span>Pumps</span><span>Couplings</span>@endfor</div></div>
+@if($brands->count())
+<div class="marq" aria-label="Partner brands"><div>@foreach($brands as $b)<a href="{{ route('brands.show',$b) }}">{{ $b->name }}</a>@endforeach @foreach($brands as $b)<a href="{{ route('brands.show',$b) }}" aria-hidden="true" tabindex="-1">{{ $b->name }}</a>@endforeach</div></div>
+@endif
 
-<section class="az-hero" data-hero-slider role="region" aria-roledescription="carousel" aria-label="Featured Quantum Tech slides">
-    <div class="az-hero-slides">
-        <article class="az-hero-slide is-active" data-hero-slide>
-            <div class="az-hero-media" aria-hidden="true">
-                <img class="az-hero-photo" src="{{ asset('images/hero/power-transmission.jpg') }}" alt="">
-                <div class="az-media-grid"></div>
-                <div class="az-media-label">POWER / TORQUE / RELIABILITY</div>
-            </div>
-            <div class="container az-hero-content">
-                <div class="az-hero-copy">
-                    <span class="az-eyebrow">01 / INDUSTRIAL POWER TRANSMISSION · DUBAI UAE</span>
-                    <h1><span>Powering industry</span><em>across UAE & GCC.</em></h1>
-                    <p>High-performance gearboxes, electric motors, drives and power-transmission solutions backed by professional engineering support.</p>
-                    <div class="az-hero-actions">
-                        <a href="{{ route('products.index') }}">Explore products <span>↗</span></a>
-                        <a href="{{ route('rfq.create') }}">Request a quote <span>↗</span></a>
-                    </div>
-                </div>
-            </div>
-        </article>
+<section class="section"><div class="container">
+<span class="kick">01 · About</span>
+<div class="bento">
+<div class="b w2 h2 hl"><span class="pxs"><i></i><i></i><i></i></span><h3 style="font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.03em">More than a supplier. Your engineering partner.</h3><p style="font-size:1.05rem;max-width:44ch">Quantum Tech connects industrial customers with dependable power-transmission equipment and technical support for selection, replacement, retrofit and demanding applications across the UAE and GCC.</p><a class="tl" href="{{ route('about') }}" style="border-color:#0b0c0e;color:#0b0c0e;align-self:flex-start">Discover Quantum Tech ↗</a></div>
+<div class="b"><span class="num">UAE/GCC</span><p>Regional focus</p><span class="mono">Dubai based</span></div>
+<div class="b"><span class="num">ENG</span><p>Application-led engineering support</p><span class="mono">Selection · Sizing</span></div>
+<div class="b"><span class="num">RFQ</span><p>Structured enquiry workflow</p><span class="mono">Quote ready</span></div>
+<div class="b"><span class="num">CAD</span><p>Technical data and resource access</p><span class="mono">Datasheets · Manuals</span></div>
+</div>
+</div></section>
 
-        <article class="az-hero-slide" data-hero-slide>
-            <div class="az-hero-media" aria-hidden="true">
-                <img class="az-hero-photo" src="{{ asset('images/hero/engineering-support.jpg') }}" alt="">
-                <div class="az-media-grid"></div>
-                <div class="az-media-label">SELECT / SIZE / REPLACE / RETROFIT</div>
-            </div>
-            <div class="container az-hero-content">
-                <div class="az-hero-copy">
-                    <span class="az-eyebrow">02 / APPLICATION ENGINEERING</span>
-                    <h1><span>More than supply.</span><em>Engineering support.</em></h1>
-                    <p>From product selection and sizing to replacements and retrofit support, Quantum Tech helps turn operating requirements into dependable solutions.</p>
-                    <div class="az-hero-actions">
-                        <a href="{{ route('solutions.index') }}">Engineering solutions <span>↗</span></a>
-                        <a href="{{ route('replacement.create') }}">Upload nameplate <span>↗</span></a>
-                    </div>
-                </div>
-            </div>
-        </article>
+<section class="section"><div class="container">
+<div class="sh"><span class="kick">02 · In practice</span><div><h2>Engineering you can <em>see and trust.</em></h2><p>Precision components, hands-on engineering support and organised technical data, working together.</p></div></div>
+<div class="gal">
+<div class="gp g1"><div class="gi" data-par style="background-image:var(--img-a)"></div><div class="gc"><small>Power transmission</small><h3>Precision in every connection</h3></div></div>
+<div class="gp g2"><div class="gi" data-par style="background-image:var(--img-b)"></div><div class="gc"><small>Engineering support</small><h3>People who solve problems</h3></div></div>
+<div class="gp g3"><div class="gi" data-par style="background-image:var(--img-c)"></div><div class="gc"><small>Technical resources</small><h3>Data at your fingertips</h3></div></div>
+</div></div></section>
 
-        <article class="az-hero-slide" data-hero-slide>
-            <div class="az-hero-media" aria-hidden="true">
-                <img class="az-hero-photo" src="{{ asset('images/hero/digital-platform.jpg') }}" alt="">
-                <div class="az-media-grid"></div>
-                <div class="az-media-label">DISCOVER / VERIFY / ENQUIRE</div>
-            </div>
-            <div class="container az-hero-content">
-                <div class="az-hero-copy">
-                    <span class="az-eyebrow">03 / DIGITAL SALES PLATFORM</span>
-                    <h1><span>Find it. Verify it.</span><em>Request it.</em></h1>
-                    <p>Browse structured technical data, downloadable resources and product information, then move directly into a focused quotation workflow.</p>
-                    <div class="az-hero-actions">
-                        <a href="{{ route('resources.index') }}">Technical resources <span>↗</span></a>
-                        <a href="{{ route('rfq.create') }}">Start RFQ <span>↗</span></a>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+<section class="section muted fam-sec"><div class="container">
+<div class="sh"><span class="kick">03 · Product families</span><div><h2>Move through the catalogue <em>by application.</em></h2><p>Hover a family to watch its shape take form, then open it to browse the range.</p></div></div>
+<div class="fam-wrap">
+<div>
+@forelse($categories as $index => $c)
+<a class="fam" href="{{ route('products.index',['category'=>$c->slug]) }}" data-category-row><span class="nn">{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</span><div><h3>{{ $c->name }}</h3><p>{{ $c->description }}</p></div><i>↗</i></a>
+@empty<div class="empty-state">No categories yet. Run the seeders from the README.</div>@endforelse
+</div>
+<canvas class="qt3d-morph" aria-hidden="true"></canvas>
+</div>
+</div></section>
 
-    <div class="container az-hero-controls">
-        <div class="az-hero-count"><strong data-hero-current>01</strong><span>/ 03</span></div>
-        <div class="az-hero-progress"><i data-hero-progress></i></div>
-        <div class="az-hero-dots" data-hero-dots></div>
-        <div class="az-hero-buttons">
-            <button type="button" data-hero-prev aria-label="Previous slide">←</button>
-            <button type="button" data-hero-next aria-label="Next slide">→</button>
-        </div>
-        <div class="az-scroll-cue"><span></span>Scroll to explore</div>
-    </div>
+<section class="section"><div class="container">
+<div class="sh"><span class="kick">04 · Featured</span><div><h2>A closer look at <em>industrial motion.</em></h2><p>Drag or use the arrows to browse featured products. Each leads to structured specifications and quotation.</p><div class="rctl" style="margin-top:28px"><button type="button" data-rail-prev aria-label="Previous">←</button><button type="button" data-rail-next aria-label="Next">→</button></div></div></div>
+</div>
+<div class="rail" data-rail>
+@forelse($products as $p)@include('partials.product-card',['p'=>$p])@empty<div class="container empty-state">No featured products yet.</div>@endforelse
+</div>
+<div class="container"><a class="tl" href="{{ route('products.index') }}">View the full catalogue ↗</a></div>
 </section>
 
-<section class="editorial-section intro-section az-reveal-section" data-reveal-section>
-    <div class="container section-intro-grid">
-        <div class="section-marker"><span>S.01</span><b>About Quantum Tech</b></div>
-        <div class="section-copy-large">
-            <h2 class="split-reveal">More than a supplier.<br><em>Your engineering partner.</em></h2>
-            <p>Quantum Tech connects industrial customers with dependable power-transmission equipment and technical support for selection, replacement, retrofit and demanding applications across the UAE and GCC.</p>
-            <a class="text-link" href="{{ route('about') }}">Discover Quantum Tech <span>↗</span></a>
-        </div>
-    </div>
-    <div class="container capability-rail az-stat-rail">
-        <div><span data-count-to="01">01</span><p>Regional UAE / GCC focus</p></div>
-        <div><span>ENGINEERING</span><p>Application-led support</p></div>
-        <div><span>RFQ</span><p>Structured enquiry workflow</p></div>
-        <div><span>CAD / DATA</span><p>Technical resource access</p></div>
-    </div>
-</section>
+<section class="section muted"><div class="container">
+<div class="sh"><span class="kick">05 · Industries</span><div><h2>Different industries. <em>One engineering mindset.</em></h2><p>The operating environments Quantum Tech is structured to support.</p></div></div>
+<div class="ind-grid">
+@forelse($industries as $index => $i)
+<a class="ind" href="{{ route('industries.show',$i) }}"><strong>{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</strong><h3>{{ $i->name }}</h3><p>{{ $i->short_description }}</p><span>Explore ↗</span></a>
+@empty<div class="empty-state">No featured industries yet.</div>@endforelse
+</div>
+</div></section>
 
-<section class="editorial-section services-section az-reveal-section" data-reveal-section>
-    <div class="container section-intro-grid">
-        <div class="section-marker"><span>S.02</span><b>Product categories</b></div>
-        <div class="section-copy-large compact-copy">
-            <h2 class="split-reveal">Move through the catalogue <em>by application.</em></h2>
-            <p>Hover or tap a category to explore the equipment families available for your requirement.</p>
-        </div>
-    </div>
+<section class="section"><div class="container reach">
+<div><span class="kick">06 · Regional reach</span><h2 class="big">Dubai based.<br><em>GCC wide.</em></h2><p style="color:#9aa1aa;margin-top:24px;max-width:50ch;font-size:1.1rem">From Dubai, Quantum Tech supports industrial customers across the UAE and the wider GCC with product supply, application engineering and responsive technical support.</p><div class="chips"><span>UAE</span><span>Saudi Arabia</span><span>Qatar</span><span>Oman</span><span>Kuwait</span><span>Bahrain</span></div></div>
+<div class="qt3d-globe-box"><canvas data-3d="globe" aria-label="Interactive 3D globe of the UAE and GCC"></canvas><span class="qt3d-hint">DRAG TO ROTATE</span></div>
+</div></section>
 
-    <div class="container service-list az-category-list">
-        @forelse($categories as $index => $c)
-            <a href="{{ route('products.index',['category'=>$c->slug]) }}" class="service-row az-category-row" data-category-row>
-                <span class="service-number">{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</span>
-                <div class="service-title"><h3>{{ $c->name }}</h3><p>{{ $c->description }}</p></div>
-                <div class="az-category-orbit" aria-hidden="true"><i></i><i></i><img src="{{ asset('images/logo/icon.png') }}" alt=""></div>
-                <span class="service-arrow">↗</span>
-            </a>
-        @empty
-            <div class="empty-state">No categories yet. Run the seeders from the README.</div>
-        @endforelse
-    </div>
-</section>
+<section class="section muted"><div class="container">
+<div class="sh"><span class="kick">07 · How we help</span><div><h2>From first enquiry to <em>dependable operation.</em></h2></div></div>
+<div class="steps" data-steps>
+<div class="step"><i></i><b>01</b><h3>Select</h3><p>Find the right gearbox, motor or drive from structured technical data.</p></div>
+<div class="step"><i></i><b>02</b><h3>Size</h3><p>Match torque, ratio and power to your operating requirement.</p></div>
+<div class="step"><i></i><b>03</b><h3>Replace</h3><p>Upload a nameplate and identify a suitable replacement.</p></div>
+<div class="step"><i></i><b>04</b><h3>Retrofit</h3><p>Engineering support for upgrades and demanding applications.</p></div>
+</div></div></section>
 
-<section class="editorial-section dark-section products-showcase az-reveal-section" data-reveal-section>
-    <div class="container section-intro-grid">
-        <div class="section-marker light-marker"><span>S.03</span><b>Featured products</b></div>
-        <div class="section-copy-large compact-copy">
-            <h2 class="split-reveal">A closer look at <em>industrial motion.</em></h2>
-            <p>Drag, scroll or use the controls to explore featured products. Each product leads to structured specifications and quotation access.</p>
-        </div>
-    </div>
+<section class="section"><div class="container eng">
+<div class="eng-vis"><canvas class="qt3d-fill" data-3d="gearbox" aria-hidden="true"></canvas></div>
+<div><span class="kick">08 · Engineering solutions</span><h2 class="big">From selection to <em>replacement &amp; retrofit.</em></h2>
+<div class="eng-list" style="margin-top:36px">@foreach($solutions as $index => $s)<a href="{{ route('solutions.show',$s) }}"><span>{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</span><div><b>{{ $s->name }}</b><small>{{ $s->short_description }}</small></div><i style="font-style:normal">↗</i></a>@endforeach</div>
+<a class="tl" href="{{ route('solutions.index') }}">All engineering solutions ↗</a></div>
+</div></section>
 
-    <div class="az-carousel-wrap" data-carousel data-carousel-mode="cards">
-        <div class="container az-carousel-meta">
-            <div><strong data-carousel-current>01</strong><span>/ {{ str_pad(max(1, $products->count()),2,'0',STR_PAD_LEFT) }}</span></div>
-            <div class="az-carousel-progress"><i data-carousel-progress></i></div>
-            <div class="az-carousel-controls">
-                <button type="button" data-carousel-prev aria-label="Previous products">←</button>
-                <button type="button" data-carousel-next aria-label="Next products">→</button>
-            </div>
-        </div>
-        <div class="az-carousel-viewport" data-carousel-viewport>
-            <div class="az-carousel-track" data-carousel-track>
-                @forelse($products as $p)
-                    <div class="az-product-slide" data-carousel-slide>
-                        @include('partials.product-card',['p'=>$p])
-                    </div>
-                @empty
-                    <div class="container empty-state">No featured products yet.</div>
-                @endforelse
-            </div>
-        </div>
-    </div>
-    <div class="container section-footer-link"><a class="text-link light" href="{{ route('products.index') }}">View full product catalogue <span>↗</span></a></div>
-</section>
+@if($brands->count() > 2)
+<section class="section muted center"><div class="container"><span class="kick">09 · Partner brands</span><h2 class="big">Technology from <em>trusted manufacturers.</em></h2>
+<div class="qt3d-sphere" aria-label="Partner brands">@foreach($brands as $b)<a href="{{ route('brands.show',$b) }}">{{ $b->name }}</a>@endforeach</div></div></section>
+@endif
 
-<section class="editorial-section az-perspective-section az-reveal-section" data-reveal-section>
-    <div class="container section-intro-grid">
-        <div class="section-marker"><span>S.04</span><b>Industry perspective</b></div>
-        <div class="section-copy-large compact-copy">
-            <h2 class="split-reveal">Different industries.<br><em>One engineering mindset.</em></h2>
-            <p>Explore the operating environments Quantum Tech is structured to support.</p>
-        </div>
-    </div>
+@if($caseStudies->count() || $blogs->count())
+<section class="section"><div class="container">
+<div class="sh"><span class="kick">10 · Insights</span><div><h2>Engineering stories <em>and know-how.</em></h2></div></div>
+<div class="insights">
+@foreach($caseStudies as $x)<a class="card" href="{{ route('case-studies.show',$x) }}"><small>Case study · {{ $x->industry?->name }}</small><h3>{{ $x->title }}</h3><p>{{ \Illuminate\Support\Str::limit($x->problem,110) }}</p><span>Read ↗</span></a>@endforeach
+@foreach($blogs as $p)<a class="card" href="{{ route('blog.show',$p) }}"><small>Article · {{ optional($p->published_at)->format('d M Y') }}</small><h3>{{ $p->title }}</h3><p>{{ \Illuminate\Support\Str::limit($p->excerpt,110) }}</p><span>Read ↗</span></a>@endforeach
+</div></div></section>
+@endif
 
-    <div class="container az-perspective" data-carousel data-carousel-mode="full">
-        <div class="az-perspective-viewport" data-carousel-viewport>
-            <div class="az-perspective-track" data-carousel-track>
-                @forelse($industries as $index => $i)
-                    <article class="az-perspective-slide" data-carousel-slide>
-                        <div class="az-perspective-art" data-industry-art="{{ ($index % 4) + 1 }}" aria-hidden="true">
-                            <span class="perspective-grid"></span>
-                            <span class="perspective-line one"></span>
-                            <span class="perspective-line two"></span>
-                            <strong>{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</strong>
-                        </div>
-                        <div class="az-perspective-copy">
-                            <span>{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }} / {{ str_pad(max(1,$industries->count()),2,'0',STR_PAD_LEFT) }}</span>
-                            <h3>{{ $i->name }}</h3>
-                            <p>{{ $i->short_description }}</p>
-                            <a class="text-link" href="{{ route('industries.show',$i) }}">Explore this industry <span>↗</span></a>
-                        </div>
-                    </article>
-                @empty
-                    <article class="az-perspective-slide" data-carousel-slide><div class="empty-state">No featured industries yet.</div></article>
-                @endforelse
-            </div>
-        </div>
-        <div class="az-perspective-controls">
-            <div><strong data-carousel-current>01</strong><span>/ {{ str_pad(max(1,$industries->count()),2,'0',STR_PAD_LEFT) }}</span></div>
-            <p>Scroll or drag to discover the next application.</p>
-            <div class="az-carousel-controls">
-                <button type="button" data-carousel-prev aria-label="Previous industry">←</button>
-                <button type="button" data-carousel-next aria-label="Next industry">→</button>
-            </div>
-        </div>
-    </div>
-</section>
+<section class="replacement-band"><div class="container">
+<div><span class="kick">Replacement / Nameplate</span><h2>Need a replacement gearbox or motor?</h2></div>
+<p>Upload a photo of the existing nameplate and share what you know. Our team will review the requirement and help identify a suitable replacement.</p>
+<a class="ring-link" href="{{ route('replacement.create') }}">Upload<br>nameplate ↗</a>
+</div></section>
 
-<section class="editorial-section engineering-section az-reveal-section" data-reveal-section>
-    <div class="container engineering-grid">
-        <div class="engineering-visual az-parallax-stage" data-parallax-stage aria-hidden="true">
-            <div class="engineering-grid-art"></div>
-            <div class="engineering-label">ENGINEERING<br>SUPPORT</div>
-            <div class="az-floating-spec spec-a"><small>TORQUE</small><b>Nm</b></div>
-            <div class="az-floating-spec spec-b"><small>RATIO</small><b>i</b></div>
-            <div class="az-floating-spec spec-c"><small>POWER</small><b>kW</b></div>
-        </div>
-        <div>
-            <div class="section-marker"><span>S.05</span><b>Engineering solutions</b></div>
-            <div class="section-copy-large compact-copy">
-                <h2 class="split-reveal">From selection to <em>replacement & retrofit.</em></h2>
-            </div>
-            <div class="engineering-list">
-                @foreach($solutions as $index => $s)
-                    <a href="{{ route('solutions.show',$s) }}">
-                        <span>{{ str_pad($index + 1,2,'0',STR_PAD_LEFT) }}</span>
-                        <div><b>{{ $s->name }}</b><small>{{ $s->short_description }}</small></div>
-                        <i>↗</i>
-                    </a>
-                @endforeach
-            </div>
-            <a class="text-link" href="{{ route('solutions.index') }}">Explore all engineering solutions <span>↗</span></a>
-        </div>
-    </div>
-</section>
-
-<section class="editorial-section brands-section az-reveal-section" data-reveal-section>
-    <div class="container section-intro-grid">
-        <div class="section-marker"><span>S.06</span><b>Partner brands</b></div>
-        <div class="section-copy-large compact-copy">
-            <h2 class="split-reveal">Technology from <em>trusted manufacturers.</em></h2>
-        </div>
-    </div>
-    <div class="brand-marquee-wrap">
-        <div class="brand-marquee az-interactive-marquee">
-            @foreach($brands as $b)
-                <a href="{{ route('brands.show',$b) }}"><strong>{{ $b->name }}</strong><small>{{ $b->country }}</small></a>
-            @endforeach
-            @foreach($brands as $b)
-                <a href="{{ route('brands.show',$b) }}" aria-hidden="true" tabindex="-1"><strong>{{ $b->name }}</strong><small>{{ $b->country }}</small></a>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<section class="replacement-band az-reveal-section" data-reveal-section>
-    <div class="replacement-noise" aria-hidden="true"></div>
-    <div class="container replacement-grid">
-        <div>
-            <span class="section-kicker light-kicker">Replacement / Nameplate</span>
-            <h2>Need a replacement gearbox or motor?</h2>
-        </div>
-        <p>Upload a photo of the existing equipment nameplate and share the available operating details. Our team can review the requirement and help identify a suitable replacement.</p>
-        <a class="round-link orange-link az-pulse-link" href="{{ route('replacement.create') }}">Upload<br>Nameplate <span>↗</span></a>
-    </div>
-</section>
-
-<section class="final-cta az-reveal-section" data-reveal-section>
-    <div class="az-cta-orbit" aria-hidden="true"><span></span><span></span><img src="{{ asset('images/logo/icon.png') }}" alt=""></div>
-    <div class="container final-cta-inner">
-        <span class="section-marker"><span>S.07</span><b>Start a project</b></span>
-        <h2 class="split-reveal">Tell us what you need.<br><em>We’ll help you specify it.</em></h2>
-        <div class="final-cta-actions">
-            <a href="{{ route('rfq.create') }}">Request a Quote <span>↗</span></a>
-            <a href="{{ route('contact') }}">Talk to our team <span>↗</span></a>
-        </div>
-    </div>
-</section>
+<section class="final-cta"><div class="container">
+<span class="kick">Start a project</span>
+<h2>Tell us what you need.<br>We’ll help you specify it.</h2>
+<a class="btn" href="{{ route('rfq.create') }}">Request a quote</a><a class="btn outline" href="{{ route('contact') }}">Talk to our team</a>
+</div></section>
 @endsection
